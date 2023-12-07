@@ -1,6 +1,6 @@
 # Découvrez les conteneurs
 
-Les conteneurs sont des sortes de VM qu'on crée dans notre ordinateur (pour un conteneur, on parlera _d'enveloppe virtuelle_). Ils fonctionnent sur le même principe que les VM (des instances qui s'isolent du reste de la machine pour faire tourner un code).
+Les conteneurs sont des sortes de VM qu'on crée dans notre ordinateur (pour un conteneur, on parlera _d'enveloppe virtuelle_). Ils fonctionnent sur le même principe que les VM (des instances qui s'isolent du reste de la machine pour faire tourner un code). Grâce aux conteneurs, on peut donc augmenter le nombre de serveurs sur une machine hôte.
 
 Les conteneurs ont la particularité d'être **auto-porteurs** : leur stabilité est assurée qq soit la machine ou l'environnement sur lequel elle est utilisée. Ils sont aussi **auto-documentés** : la documentation est intégrée via le fichier de configuration nécessaire à son fonctionnement.
 
@@ -10,7 +10,7 @@ On dit que le conteneur permet de faire de la **virtualisation légère**. Il **
 
 Un conteneur démarre plus rapidement qu'une VM, et permet de simplifier les infras entre développeurs (notamment s'ils taffent tous sur un OS différent par exemple).
 
-Docker n'est d'ailleurs pas le premier conteneur, il en existait d'autres avant. Les conteneurs ayant un kernel Linux, on ne peut pas faire tourner Windows dans l'un d'eux.
+Docker n'est d'ailleurs pas le premier conteneur, il en existait d'autres avant. Les conteneurs ayant un kernel Linux, on ne peut pas faire tourner Windows dans l'un d'eux (ni Mac d'ailleurs, qui est basé sur Unix et non Linux lol).
 
 Les outils d'intégration continue et de livraison continue (CI/CD) utilisent souvent des conteneurs, permettant de créer des espaces isolés pour gérer les tests.
 Docker s'utilise donc à tous les niveaux de l'infra (développement, CI, production).
