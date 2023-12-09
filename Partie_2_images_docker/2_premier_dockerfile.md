@@ -33,11 +33,11 @@ Avec ces commandes, on peut donc créer le Dockerfile un peu plus riche qu'est c
 FROM debian:11
 
 RUN apt-get update -yq \
-   && apt-get install curl gnupg -yq \
-   && curl -sL https://deb.nodesource.com/setup_10.x | bash \
-   && apt-get install nodejs -yq \
-   && apt-get clean -y \
-   && apt-get install npm
+    && apt-get upgrade -yq \
+    && apt-get install curl gnupg -yq \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash \
+    && apt-get install -y nodejs npm \
+    && apt-get clean -y
 
 ADD . /app/
 WORKDIR /app
@@ -49,7 +49,7 @@ VOLUME /app/logs
 CMD npm run start
 ```
 
-Attention à mettre Debian 11, la 9 est obsolète et ne fait plus tourner les commandes du RUN ci-dessus !
+Attention à mettre Debian 11, la 9 est obsolète et ne fait plus tourner les commandes du RUN ci-dessus ! Et j'ai du préciser explicitement l'installation de `npm`, qui ne l'était pas (probablement par erreur ?) sur Openclassrooms.
 
 On peut créer un ficher `.dockerignore`, à placer à côté du Dockerfile, pour que Docker ignore l'ajout de certains fichiers du dossier indiqué en paramètre lors d'un `ADD`. Son contenu ici sera le suivant :
 
