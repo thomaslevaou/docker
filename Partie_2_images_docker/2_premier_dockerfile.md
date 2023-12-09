@@ -69,7 +69,7 @@ Attention Docker créé alors **un conteneur pour chaque instruction** (donc pou
 
 L'image est alors visible dans la liste de `docker images`.
 
-Elle peut donc être lancée avec un `docker run mon_image`.
+Elle peut donc être lancée avec un `docker run mon_image` (ou `docker run -d -p 2368:2368 ocr-docker-build` pour lancer un conteneur détaché sur le port 2368, mais ça ne marche pas à cause d'un problème de dépendances du `package.json` du projet, mais tant pis je ne prends pas le temps de déboguer ça plus en détail).
 
 Pour déboguer mon `sudo apt-get update`, qui me dit que je manque de fichier `Release` (dans ma commande perso):
 
