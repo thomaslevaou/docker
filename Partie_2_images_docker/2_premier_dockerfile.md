@@ -30,13 +30,14 @@ L'instruction `VOLUME` permet d'indiquer quel répertoire vous voulez partager a
 Avec ces commandes, on peut donc créer le Dockerfile un peu plus riche qu'est celui ci-dessous :
 
 ```bash
-FROM debian:9
+FROM debian:11
 
 RUN apt-get update -yq \
-&& apt-get install curl gnupg -yq \
-&& curl -sL https://deb.nodesource.com/setup_10.x | bash \
-&& apt-get install nodejs -yq \
-&& apt-get clean -y
+   && apt-get install curl gnupg -yq \
+   && curl -sL https://deb.nodesource.com/setup_10.x | bash \
+   && apt-get install nodejs -yq \
+   && apt-get clean -y \
+   && apt-get install npm
 
 ADD . /app/
 WORKDIR /app
@@ -47,6 +48,8 @@ VOLUME /app/logs
 
 CMD npm run start
 ```
+
+Attention à mettre Debian 11, la 9 est obsolète et ne fait plus tourner les commandes du RUN ci-dessus !
 
 On peut créer un ficher `.dockerignore`, à placer à côté du Dockerfile, pour que Docker ignore l'ajout de certains fichiers du dossier indiqué en paramètre lors d'un `ADD`. Son contenu ici sera le suivant :
 
@@ -59,7 +62,7 @@ Comme le Dockerfile de ma propre image Docker est maintenant écrit, je peux **c
 
 ```bash
 cd ghost-cms
-docker build -t mon_image .
+docker build -t mon_image .  # ou ̀`docker build -t ocr-docker-build .` pour les images un peu plus compliquées
 ```
 
 Attention Docker créé alors **un conteneur pour chaque instruction** (donc pour chaque ̀`RUN`, et donc chaque layer, de ce que je comprends). Docker ne reconstruit pas une image qui n'a pas bougé par rapport au build précédent.
@@ -68,3 +71,9 @@ L'image est alors visible dans la liste de `docker images`.
 
 Elle peut donc être lancée avec un `docker run mon_image`.
 
+Pour déboguer mon `sudo apt-get update`, qui me dit que je manque de fichier `Release` (dans ma commande perso):
+
+```bash
+cd /etc/apt/sources.list.d
+sudo rm nilarimogard-ubuntu-webupd8-mantic.list*
+```
