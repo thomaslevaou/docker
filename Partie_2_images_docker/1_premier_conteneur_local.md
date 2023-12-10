@@ -44,7 +44,7 @@ Le conteneur `hello-world` ne fait que s'allumer, afficher du contenu, puis s'é
 
 Je ne suis pas obligé de savoir dès le départ si j'ai besoin d'une fenêtre interactive au lancement du conteneur ou non. En prenant l'id retourné lors du lancement d'un conteneur détaché, je peux aussi ouvrir sur demande une fenêtre interactive à l'aide d'un `docker exec -ti ID_RETOURNÉ_LORS_DU_DOCKER_RUN bash`, ce qui m'ouvre une fenêtre de commande bash en root dans mon conteneur.
 
-Je peux donc par exemple lancer un conteneur nginx détaché sur le port 80 (le changement de port pouvant être effectué via le paramètre `-p`), puis ouvrir un terminal Bash dans une commande séparée:
+Je peux donc par exemple lancer un conteneur nginx détaché sur le port 80 (le changement de port pouvant être effectué via le paramètre `-p` ou `--publish`), puis ouvrir un terminal Bash dans une commande séparée:
 
 ```bash
 docker run -d -p 8080:80 nginx # Comme pour hello-world, l'image est téléchargée depuis Docker Hub toute seule

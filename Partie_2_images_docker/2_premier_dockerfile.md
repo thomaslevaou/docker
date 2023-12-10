@@ -29,7 +29,7 @@ L'instruction `RUN` permet d'exécuter une commande dans le conteneur. Attention
 Pour copier ou télécharger des fichiers en local dans l'image (il faut bien faire ça pour que les autres développeurs récupèrent les bons fichiers en installant l'image), on utilise l'intruction `ADD`.
 La commande `WORKDIR` permet de changer le répertoire courant (équivalent de `cd` en shell).
 Et `EXPOSE` permet d'indiquer le port sur lequel votre application écoute.
-L'instruction `VOLUME` permet d'indiquer quel répertoire vous voulez partager avec votre host.
+L'instruction `VOLUME` permet d'indiquer quel répertoire vous voulez partager avec votre host (je suppose pour que j'y ai accès depuis la machine hôte ?).
 
 Avec ces commandes, on peut donc créer le Dockerfile un peu plus riche qu'est celui ci-dessous :
 
