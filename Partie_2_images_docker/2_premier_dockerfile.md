@@ -1,6 +1,8 @@
-# Créez votre premier Dockerfile
+# Créez votre premier Dockerfile
 
 Je souhaite maintenant créer ma propre image Docker, pour pouvoir à la fois installer node.js et les dépendances de mon projet.
+
+## Image Docker "Hello World de base"
 
 Pour ce faire, je dois créer un fichier appelé le **Dockerfile**, qui liste les différents éléments dont j'ai besoin pour faire tourner mon projet, à la manière d'un `package.json` en Node.js.
 
@@ -19,6 +21,8 @@ CMD ["echo", "Hello World !"]
 ```
 
 Ce Dockerfile est basique, mais on va en recréer un un peu plus riche.
+
+## Image Docker typique d'une utilisation dans un projet
 
 L'instruction `RUN` permet d'exécuter une commande dans le conteneur. Attention au fait que cette commande crée une nouvelle **layer** dans le projet. Elle doit donc être utilisée le moins possible.
 
@@ -57,6 +61,8 @@ On peut créer un ficher `.dockerignore`, à placer à côté du Dockerfile, pou
 node_modules
 .git
 ```
+
+## Construction de l'image
 
 Comme le Dockerfile de ma propre image Docker est maintenant écrit, je peux **construire** mon image, avec la commande `docker build`, agrémentée du paramètre `-t` pour donner un nom à l'image, et d'un `.` pour indiquer qu'on veut construire l'image à partir du dossier courant :
 
