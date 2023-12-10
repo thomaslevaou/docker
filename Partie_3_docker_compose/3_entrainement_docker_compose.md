@@ -1,6 +1,6 @@
-# Entraînez-vous en orchestrant vos images Docker avec Docker Compose
+# Entraînez-vous en orchestrant vos images Docker avec Docker Compose
 
-## Dockerfile
+## Dockerfile
 
 Dockerfile que j'ai fait avant de voir la correction:
 
@@ -49,7 +49,7 @@ CMD ["python", "/app/main.py"]
 On pouvait mettre juste une image de Python 3 et ça suffisait, Docker peut ensuite partager les ressources avec le reste.
 Et c'est plus propre d'utiliser `CMD` avec les crochets
 
-## Docker Compose
+## Docker Compose
 
 Fichier docker-compose avant correction :
 
