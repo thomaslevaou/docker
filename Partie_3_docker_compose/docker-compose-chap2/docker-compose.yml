@@ -6,3 +6,5 @@ services:
     image: dockerfacile/app
     ports:
       - 5000:5000
+    environment:
+      starwars: 1
